@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class Ohjelma {
+    
+    public static void main(String[] args) {
+
+Scanner lukija = new Scanner(System.in);       
+        
+String arvaus;
+String nimi;
+nimi = "Sirpa";
+         // arvausten lukumäärälle oma muuttuja ja samalla alkuarvoksi 0
+int arv_lkm = 0;
+
+do{
+    System.out.println("Arvaa nimeni?");
+        arvaus = lukija.nextLine();
+
+    System.out.println(arvaus);
+        // ehtolause, jos arvaus vastaa sanaa "loppu" -> loop lopetetaan
+    if(arvaus.contentEquals("loppu")){
+        // break koodilla hypätään ulos loopista
+        break;
+    }
+    
+if(arvaus.contentEquals(nimi)){
+    System.out.println("Onneksi olkoon!");
+        //kun arvaus osuu oikeaan, lisätään yksi arvausten lukumäärään
+    arv_lkm++;
+}else{
+    System.out.println("Vastaus väärin, arvaa uudelleen.");
+        //kun arvaus menee väärin, lisätään yksi arvausten lukumäärään
+    arv_lkm++;
+}
+}while(!arvaus.contentEquals(nimi));
+    System.out.println("Kiitos pelaamisesta");
+        //tulostetaan viesti jossa on arvausten yhteismäärä sillä hetkellä
+    System.out.println("Arvausten määrä " + (arv_lkm));
+    }
+}

@@ -1,0 +1,68 @@
+import java.util.Random;
+import java.util.Scanner;
+
+
+public class Ohjelma {
+
+    public static void main(String[] args) {
+
+Random random = new Random();
+    Scanner in = new Scanner(System.in);
+
+
+int luku1, luku2, luku3, raha;
+
+String playAgain;
+
+System.out.println("Syötä rahamäärä, jolla haluat pelata");
+raha = Integer.parseInt(in.nextLine());
+
+do
+{
+    luku1 = random.nextInt(10)+1;
+        luku2 = random.nextInt(10)+1;
+            luku3 = random.nextInt(10)+1;
+
+    System.out.println(luku1);
+        System.out.println(luku2);
+            System.out.println(luku3);
+
+    if (luku1 == 7 || luku2 == 7 || luku3 == 7)
+{
+    raha = raha + 1;
+
+    System.out.println("Sinä voitit, rahaa jäljellä " + (raha));
+}
+    else
+{
+raha = raha -1;
+    System.out.println("Sinä hävisit, rahaa jäljellä " + (raha));
+    if(raha < 1){
+        System.out.println("peli päättyy");
+        break;
+    }
+}
+if (luku1 == 7 && luku2 == 7 || luku2 ==7 && luku3 ==7 || luku1 ==7 && luku3 == 7)
+{
+    System.out.println("Sinä voitit, rahaa jäljellä " + (raha +2));
+}
+
+if (luku1 == 7 && luku2 == 7 && luku3 == 7)
+{
+    System.out.println("Sinä voitit, rahaa jäljellä " + (raha+3));
+}
+    System.out.println("Haluatko pelata uudelleen? Jos haluat pelata uudelleen, paina Enter. Jos et halua pelata, kirjoita lopetan ja paina Enter");
+
+playAgain = in.nextLine();
+
+if (playAgain.contentEquals("lopetan"))
+{
+System.out.println("peli päättyy");
+}
+}
+while (playAgain.contentEquals(""));
+{
+    in.close();
+}
+}
+}

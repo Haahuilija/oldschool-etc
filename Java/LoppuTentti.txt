@@ -1,0 +1,88 @@
+        // importataan scanneri sekä array lista
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class Ohjelma {
+        
+        // luodaan metodi joka tulostaa yksinkertaisen logon
+    static void logoMetodi() {
+        System.out.println("*******************");
+        System.out.println("* Pauline's Pizza *");
+        System.out.println("*******************" + "\n");
+    }    
+
+public static void main(String[] args) {
+        // tuodaan ja nimetään scanneri mainissa
+    Scanner lukija = new Scanner(System.in);
+        // määritellään pizza muuttuja stringiksi, ei tarvitse myöhemmin erikseen
+    String pizza;
+        // omat muuttujat pizzan tietojen korjausta varten
+    int myynninNro;
+    String muutos;
+        // määritellään indeksi muuttuja jota kätetään listan tulostuksen yhteydessä
+        // saadaan numerot listan sisällä olevien kohteiden eteen
+        // indeksi alkaisi muuten luvusta 0 joten asetetaan sille suoraan arvo 1
+    int indeksi = 1;
+        // määritellään array listan nimi
+    ArrayList<String> myydytPizzat = new ArrayList<String>();
+        
+        // kutsutaan metodia mainissa
+    logoMetodi();
+       
+        // aloitetaan do/while looppi jonka aikana voidaan syöttää listaan tietoa      
+    do{
+    
+            // pyydetään syöttämään pizzan nimi ja otetaan scanneria käyttäen muuttujaan talteen
+    System.out.println("1 Vege - 2 Salami - 3 Mozzarella - poistu: e");
+        pizza = lukija.nextLine();
+            // if lauseella käyttäjä voi viedä pizzan nimen listaan pelkästään nro käyttäen
+            // jos käyttäjä kirjoittaa "e" niin sitä ei viedä listaan
+        if(pizza.contentEquals("1")){
+            myydytPizzat.add("Vege");
+        }else if(pizza.contentEquals("2")){
+            myydytPizzat.add("Salami");
+        }else if(pizza.contentEquals("3")){ 
+            myydytPizzat.add("Mozzarella");
+        }else if(pizza.contentEquals("e")){
+                // break komennolla hypätään ulos loopista
+            break;
+        }else{
+            System.out.println("1 Vege - 2 Salami - 3 Mozzarella - poistu: e");
+        }
+        // loop pyörii niin kauan kunnes käyttäjä kirjoittaa "e"
+    }while (!pizza.contentEquals("e"));
+
+        // for loopilla tuodaan lista arrayListiin viedyistä
+        // indeksin avulla järjestysnumero
+    System.out.println("\n" + "Myydyt pizzat" + "\n");
+        for(String s : myydytPizzat){    
+    System.out.println((indeksi++)+". "+s);
+    }
+        // printataan monta pizzaa myytiin käyttäen indeksiä, tämä laskee "e" mukaan 
+        // joten se saadaan pois käyttäen (indeksi - 1)
+    System.out.println("\n" + "Pizzoja myytiin: " + (indeksi - 1));
+    
+        // pyydetään numeroa joka listassa korjataan, int scannerilla talteen omaan muuttujaan
+    System.out.println("\n" + "Kirjoita myynnin numero, minkä tiedon haluat muuttaa.");
+        myynninNro = Integer.parseInt(lukija.nextLine());
+        // pyydetään nimi joka listassa korjataan, scannerilla talteen omaan muuttujaan
+    System.out.println("Kirjoita pizza");
+        muutos = lukija.nextLine();
+        
+        // array nimi.set korjataan listassa oleva kohta
+        // suluissa ensin listan järjestys nro, koska array indeksi alkaa normaalisti kohdasta 0
+        // ja tässä on (katso rivit 22-25) korjattu indeksi 1. alkavaksi
+        // nyt joudutaan poistamaan 1
+        // "muutos" muuttuja asettaa mikä uusi nimi kyseisen indeksin kohdalle tulee
+    myydytPizzat.set(myynninNro-1, muutos);   
+        
+        // tuodaan array lista uudestaan esille muutoksen jälkeen
+        // "\n" tuodaan hieman välejä tekstille niin ohjelmaa on mukavempi lukea :)
+    System.out.println("\n");
+        for(String s : myydytPizzat){    
+    System.out.println((indeksi++)+". "+s);
+    }
+    
+    }
+
+}

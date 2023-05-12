@@ -1,0 +1,111 @@
+import java.util.Random;
+
+public class Ohjelma {
+    
+static void minunMetodi() {
+  Random random = new Random();
+  
+  String[] sananlaskut = {"Aika vanhin, avaruus suurin." , "Aikanas kirkkoon, hiljan kapakkaan." , "Aina ahne köyhä on." , "Ee pimmee piälle kuavu."};
+  
+  int arvottuIndexi = random.nextInt(sananlaskut.length);
+  
+  System.out.println(sananlaskut[arvottuIndexi]);
+}
+
+    public static void main(String[] args) {
+
+minunMetodi();
+
+    }
+}
+
+**************************************************************************************
+
+public class Ohjelma {
+    
+static int minunMetodi(int x, int y) {
+  if (x>y){
+      return x;
+  }else{
+      return y;
+  }
+}
+
+    public static void main(String[] args) {
+
+    System.out.println(minunMetodi(8,11));
+    
+    }
+}
+
+**************************************************************************************
+
+import java.util.Scanner;
+
+public class Ohjelma {
+    
+static void minunMetodi(String etunimi, int pituus) {
+ 
+    System.out.println(etunimi + " on " + pituus + " cm pitkä.");
+    
+}
+    public static void main(String[] args) {
+    
+        Scanner lukija = new Scanner(System.in);    
+        
+        String nimi;
+        int pituus;
+        
+    System.out.println("Anna nimi: ");
+        nimi = lukija.nextLine();
+    System.out.println("Anna pituus: ");
+        pituus = Integer.parseInt(lukija.nextLine());
+        
+    minunMetodi(nimi, pituus);
+    
+    }
+}
+
+**************************************************************************************
+
+public class Ohjelma {
+    
+static void minunMetodi(int nykyinenvuosi, int syntymävuosi) {
+ 
+    System.out.println(nykyinenvuosi - syntymävuosi);
+    
+}
+    public static void main(String[] args) {
+
+    minunMetodi(2020, 1987);
+    
+    }
+}
+
+
+**************************************************************************************
+
+public class Ohjelma {
+    
+static void minunMetodi(int nykyinenvuosi, int syntymävuosi) {
+ 
+    int ikä = (nykyinenvuosi - syntymävuosi);
+    
+    System.out.println(ikä);
+    
+    if( ikä > 18 ){
+        System.out.println("Olet täysikäinen");
+    }else{
+        System.out.println("Olet alaikäinen");
+    }
+    
+}
+    public static void main(String[] args) {
+
+    minunMetodi(2020, 1987);
+    
+    }
+}
+
+**************************************************************************************
+
